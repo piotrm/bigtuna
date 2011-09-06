@@ -5,10 +5,18 @@ class ProjectsController < ApplicationController
   
   def index
     @projects = Project.order("position ASC")
+    respond_to do |format|
+      format.html
+      format.json { render :json => @projects.to_json }
+    end
   end
 
   def show
     @builds = @project.builds.order("created_at DESC").limit(@project.max_builds).includes(:project, :parts).all
+    respond_to do |format|
+      format.html
+      format.json { render :json => @builds.to_json }
+    end
   end
 
   def feed
