@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
-gem "rails", "3.0.3"
+gem "rails", "3.1"
 gem "sqlite3-ruby"
+gem "mysql2"
 gem "haml"
 gem "delayed_job"
 gem "stringex"
@@ -33,10 +34,10 @@ group :development, :test do
   gem "webmock"
 
   platforms :mri_18 do
-    gem "ruby-debug"
+    #gem "ruby-debug"
   end
 
   platforms :mri_19 do
-    gem "ruby-debug19"
+    #gem "ruby-debug19"
   end
 end
