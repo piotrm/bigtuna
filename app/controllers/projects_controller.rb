@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @builds = @project.builds.order("created_at DESC").limit(@project.max_builds).includes(:project, :parts).all
+    @builds = @project.builds.order("created_at DESC").limit(params[:limit] || @project.max_builds).includes(:project, :parts).all
     respond_to do |format|
       format.html
       format.json { render :json => @builds.to_json }
